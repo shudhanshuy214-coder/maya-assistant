@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.maya.assistant">
+
+    <!-- Only permissions that Maya actually uses. Each one is requested at
+         runtime with an explanation; nothing is requested silently. -->
+
+    <!-- Voice input: Android speech recognition service (device STT engine) -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <!-- Queries: lets Maya check installed apps before offering "open <app>" -->
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueriesAllPackages"/>
+    <!-- Vibration: light haptic feedback on mic start (optional, controlled in app) -->
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <!-- Network access for the AI backend -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <!-- Maya does NOT request contacts, SMS, call, camera, storage or
+         location permissions. Features needing those (e.g. camera) are
+         launched via official intents, never accessed directly. -->
+
+    <queries>
+        <intent><action android:name="android.intent.action.VIEW"/>
+            <data android:scheme="https"/></intent>
+        <intent><action android:name="android.intent.action.WEB_SEARCH"/></intent>
+        <intent><action android:name="android.speech.action.RECOGNIZE_SPEECH"/></intent>
+    </queries>
+
+    <application
+        android:label="Maya"
+        android:icon="@mipmap/ic_launcher"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="false"
+        android:supportsRtl="true"
+        android:hardwareAccelerated="true">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:configChanges="orientation|screenSize|keyboardHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

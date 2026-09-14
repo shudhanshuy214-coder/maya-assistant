@@ -1,0 +1,24 @@
+{
+  "name": "MAYA V1 — My AI Assistant",
+  "short_name": "MAYA",
+  "description": "Maya is a personal AI voice assistant. She listens, thinks and responds, and can perform safe actions through official phone APIs.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#05060f",
+  "theme_color": "#05060f",
+  "lang": "en",
+  "permissions": [],
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='192'%3E%3Crect width='192' height='192' rx='40' fill='%2305060f'/%3E%3Ccircle cx='96' cy='96' r='38' fill='%237c5cff'/%3E%3Ccircle cx='96' cy='96' r='16' fill='%2300e0ff'/%3E%3C/svg%3E",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512'%3E%3Crect width='512' height='512' rx='96' fill='%2305060f'/%3E%3Ccircle cx='256' cy='256' r='100' fill='%237c5cff'/%3E%3Ccircle cx='256' cy='256' r='42' fill='%2300e0ff'/%3E%3C/svg%3E",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}

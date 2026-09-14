@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#05060f">
+<title>MAYA V1 — My AI Assistant</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+
+  <!-- ===== HEADER ===== -->
+  <header class="maya-header">
+    <div class="maya-logo">
+      <div class="logo-orb" id="logoOrb">
+        <span class="orb-ring r1"></span>
+        <span class="orb-ring r2"></span>
+        <span class="orb-core"></span>
+      </div>
+      <div class="logo-text">
+        <h1>MAYA</h1>
+        <p>My AI Assistant · V1</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button id="muteBtn" class="icon-btn" title="Toggle voice output">
+        <span id="muteIcon">🔊</span>
+      </button>
+      <button id="settingsBtn" class="icon-btn" title="Settings">
+        <span>⚙️</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== STATUS BAR ===== -->
+  <div class="status-bar">
+    <span class="status-dot" id="statusDot"></span>
+    <span id="statusText">Maya is ready</span>
+    <span class="net-dot" id="netDot" title="Connection"></span>
+  </div>
+
+  <!-- ===== CHAT ===== -->
+  <main class="chat-area" id="chatArea" aria-live="polite">
+    <div class="nova-card welcome">
+      <div class="nova-avatar">✦</div>
+      <div class="nova-bubble">
+        <p>Hi, I'm <strong>Maya</strong>.</p>
+        <p>Say something like: <em>"What is the time?"</em>, <em>"Open YouTube"</em>, <em>"Search Google for Class 9 science"</em> or <em>"What is 25 multiplied by 4?"</em></p>
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== QUICK ACTIONS ===== -->
+  <div class="quick-row" id="quickRow">
+    <button class="quick-btn" data-cmd="What is the time?">⏰ Time</button>
+    <button class="quick-btn" data-cmd="Open Google">🌐 Google</button>
+    <button class="quick-btn" data-cmd="Open YouTube">▶️ YouTube</button>
+    <button class="quick-btn" data-cmd="Set a reminder">⏳ Reminder</button>
+    <button class="quick-btn" data-cmd="Show my assistant">✦ Assistant</button>
+  </div>
+
+  <!-- ===== MIC + INPUT ===== -->
+  <footer class="input-zone">
+    <button id="micBtn" class="mic-btn" title="Speak" aria-label="Speak">
+      <span class="mic-icon">🎙️</span>
+      <span class="mic-pulse"></span>
+    </button>
+
+    <div class="input-wrap">
+      <input id="textIn" type="text" placeholder="Message Maya…" autocomplete="off" />
+      <button id="sendBtn" class="send-btn" title="Send">➤</button>
+    </div>
+  </footer>
+</div>
+
+<!-- ===== SETTINGS SHEET ===== -->
+<div class="sheet-backdrop" id="sheetBackdrop"></div>
+<div class="settings-sheet" id="settingsSheet" role="dialog" aria-label="Settings">
+  <div class="sheet-grip"></div>
+  <h2>Settings</h2>
+
+  <label class="row">
+    <span>Voice output (TTS)</span>
+    <input type="checkbox" id="ttsToggle" checked />
+  </label>
+
+  <label class="row">
+    <span>Voice input (Speech recognition)</span>
+    <input type="checkbox" id="sttToggle" checked />
+  </label>
+
+  <label class="row">
+    <span>Confirm before phone actions</span>
+    <input type="checkbox" id="confirmToggle" checked />
+  </label>
+
+  <div class="row col">
+    <span>Server URL (backend API)</span>
+    <input type="text" id="apiBase" placeholder="http://localhost:3000" />
+  </div>
+
+  <p class="sheet-note">
+    Maya never touches your OpenAI key. It lives only inside the backend server
+    as the environment variable <code>OPENAI_API_KEY</code>.
+  </p>
+
+  <button id="closeSheet" class="sheet-btn">Done</button>
+</div>
+
+<!-- ===== CONFIRM DIALOG ===== -->
+<div class="confirm-backdrop" id="confirmBackdrop">
+  <div class="confirm-card">
+    <h3 id="confirmTitle">Confirm action</h3>
+    <p id="confirmMsg">Allow Maya to perform this action?</p>
+    <div class="confirm-actions">
+      <button id="confirmNo" class="cbtn no">Cancel</button>
+      <button id="confirmYes" class="cbtn yes">Allow</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== NATIVE BRIDGE INJECTOR (used by Android webview) =====
+     If Maya runs inside the Android wrapper, MainActivity will actually
+     inject window.MayaNative via addJavascriptInterface.
+     Inside a plain browser it stays undefined and Maya gracefully
+     reports: "That action requires the Android version of Maya."  -->
+
+<script src="script.js"></script>
+</body>
+</html>

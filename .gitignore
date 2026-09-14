@@ -1,0 +1,18 @@
+# Secrets
+.env
+backend/.env
+*.key
+*.pem
+
+# Node
+backend/node_modules/
+backend/npm-debug.log*
+
+# Android
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/*.iml
+android/.idea/
+*.apk

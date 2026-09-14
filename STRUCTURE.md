@@ -1,0 +1,22 @@
+MAYA-V1/
+  frontend/
+    index.html
+    style.css
+    script.js
+    manifest.json
+    sw.js
+  backend/
+    server.js
+    package.json
+    .env.example
+  android/
+    README.md
+    app/src/main/AndroidManifest.xml
+    app/src/main/java/com/maya/assistant/MainActivity.java
+    app/src/main/java/com/maya/assistant/MayaBridge.java
+    app/src/main/res/layout/activity_main.xml
+    app/build.gradle
+    build.gradle
+    settings.gradle
+  README.md
+  .gitignore
