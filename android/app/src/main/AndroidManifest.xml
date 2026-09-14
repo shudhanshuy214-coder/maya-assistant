@@ -1,26 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.maya.assistant">
 
-    <!-- Only permissions that Maya actually uses. Each one is requested at
-         runtime with an explanation; nothing is requested silently. -->
-
-    <!-- Voice input: Android speech recognition service (device STT engine) -->
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
-    <!-- Queries: lets Maya check installed apps before offering "open <app>" -->
     <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"
         tools:ignore="QueriesAllPackages"/>
-    <!-- Vibration: light haptic feedback on mic start (optional, controlled in app) -->
     <uses-permission android:name="android.permission.VIBRATE"/>
-    <!-- Network access for the AI backend -->
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-
-    <!-- Maya does NOT request contacts, SMS, call, camera, storage or
-         location permissions. Features needing those (e.g. camera) are
-         launched via official intents, never accessed directly. -->
 
     <queries>
         <intent><action android:name="android.intent.action.VIEW"/>
